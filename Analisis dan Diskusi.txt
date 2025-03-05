@@ -1,0 +1,18 @@
+Analisis dan Diskusi 
+Analisis
+Program ini menggunakan kamera dan model deep learning berbasis CNN untuk mengenali gambar secara real-time. Diawali dengan mengimpor seperti cv2 untuk pengolahan citra, numpy untuk manipulasi data, dan load_model dari Keras untuk memuat model yang telah dilatih. Model CNN yang digunakan disimpan dalam file 'Intelligent-Control-Week3/cnn_model.h5'. Jika terjadi kesalahan saat memuat model, program akan menampilkan pesan error dan berhenti.
+
+Program mengenali enam kategori gambar, yaitu buildings, forest, glacier, mountain, sea, dan street. Kamera diaktifkan menggunakan cv2.VideoCapture(0), dan jika tidak dapat diakses, program akan menampilkan pesan error dan keluar.
+
+Setiap frame dari kamera diproses sebelum dikirim ke model. Program juga memiliki mode Night Vision, yang mengubah gambar menjadi skala abu-abu dan menerapkan efek colormap untuk meningkatkan kontras. Gambar kemudian diubah ukurannya menjadi 150x150 piksel, dinormalisasi, dan diprediksi menggunakan model CNN. Kelas dengan probabilitas tertinggi ditampilkan di layar bersama dengan tingkat kepercayaannya.
+
+Program menampilkan dua jendela, satu untuk tampilan asli dan satu lagi untuk mode Night Vision. Hasil prediksi ditampilkan dalam bentuk teks pada layar. Program akan terus berjalan hingga pengguna menekan tombol 'q' untuk keluar. Setelah itu, kamera dinonaktifkan dan semua jendela ditutup.
+
+Secara keseluruhan, program ini menunjukkan bagaimana model CNN dapat digunakan untuk klasifikasi gambar secara real-time. Dengan fitur tambahan seperti mode Night Vision, program ini dapat digunakan dalam berbagai aplikasi, seperti pengawasan, pengenalan lingkungan, dan sistem berbasis visi komputer lainnya.
+
+Diskusi
+Pada program ini menggunakan model CNN untuk mengklasifikasikan gambar secara real-time menggunakan kamera. Program membaca setiap frame, memprosesnya, lalu memprediksi kategori gambar, seperti bangunan, hutan, gunung, dan laut. Salah satu fitur menariknya adalah mode Night Vision, yang mengubah gambar menjadi skala abu-abu dan menerapkan efek warna untuk meningkatkan visibilitas dalam kondisi gelap, meskipun ini hanya simulasi, bukan teknologi inframerah asli.
+
+Dalam pemrosesan data, gambar diubah ukurannya menjadi 150x150 piksel dan dinormalisasi agar sesuai dengan format model. Hal ini penting untuk menjaga akurasi prediksi. Namun, performa program dapat bervariasi tergantung pada spesifikasi perangkat keras. Untuk meningkatkan efisiensi, bisa digunakan optimasi model atau akselerasi dengan GPU/TPU.
+
+Kode ini masih bisa dikembangkan lebih lanjut, misalnya dengan menyimpan hasil prediksi ke dalam database atau menggabungkannya dengan teknologi lain seperti deteksi objek berbasis YOLO. Dengan beberapa perbaikan, program ini bisa digunakan untuk berbagai aplikasi, seperti pengawasan, navigasi drone, atau sistem keamanan otomatis.
